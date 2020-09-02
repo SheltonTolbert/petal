@@ -2,6 +2,7 @@ import MediumGetter
 import RedditGetter
 import TwitterGetter
 import DatabaseConnector as dbc
+import Sorter
 
 
 def get_content(username):
@@ -33,6 +34,14 @@ def get_content(username):
     for users in twitter_users:
         TwitterGetter.connect()
         twitter_content.append(TwitterGetter.get_content(users))
+
+    # Sort content by newest first
+    twitter_content[0].sort(key=lambda tweet: tweet.time_created)
+    for tweets in twitter_content[0]:
+        print(tweets.time_created, tweets.username)
+
+    reddit_content[0].sort(key=lambda post: post.time)
+    medium_content[0].sort(key=lambda article: article.date)
 
     return(twitter_content, reddit_content, medium_content)
 

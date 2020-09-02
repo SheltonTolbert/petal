@@ -70,6 +70,7 @@ def get_content(username, platform):
 
         cursor.close()
         conn.close()
+
         return content
     except:
         return False

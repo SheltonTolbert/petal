@@ -1,5 +1,6 @@
 import Driver
 import json
+import shutil
 
 '''
 the purpose of this .py is to export all necessary data to a json file
@@ -45,46 +46,79 @@ def export(username):
         package['twitter'] = twitter
         package['medium'] = medium
         package['user_info'] = info
+
     # twitter group
-        for i in range(len(content[0][0])):
-            post = {}
-            post['username'] = content[0][0][i].username
-            post['profile_img'] = content[0][0][i].profile_img
-            post['text'] = content[0][0][i].text
-            post['media'] = content[0][0][i].media
-            post['retweet count'] = content[0][0][i].retweet_count
-            post['favorited count'] = content[0][0][i].favorited_count
-            post['time created'] = content[0][0][i].time_created
-            twitter['post' + str(i)] = post
-        # reddit Group
-        for i in range(len(content[1][0])):
-            post = {}
-            post['title'] = content[1][0][i].title
-            post['author'] = content[1][0][i].author
-            post['link'] = content[1][0][i].link
-            post['time'] = content[1][0][i].time
-            post['score'] = content[1][0][i].score
-            reddit['post' + str(i)] = post
-        # medium Group
-        for i in range(len(content[1][0])):
-            post = {}
-            post['author'] = (content[2][0][i].author)
-            post['title'] = (content[2][0][i].title)
-            post['description'] = (content[2][0][i].description)
-            post['link'] = (content[2][0][i].link)
-            post['date'] = (content[2][0][i].date)
-            post['read_time'] = (content[2][0][i].read_time)
-            post['category'] = (content[2][0][i].category)
-            medium['post' + str(i)] = post
+        postnum = 0
+        for j in range(len(content[0])):
+            for i in range(len(content[j][0])):
+                post = {}
+                post['username'] = content[0][j][i].username
+                post['profile_img'] = content[0][j][i].profile_img
+                post['text'] = content[0][j][i].text
+                post['media'] = content[0][j][i].media
+                post['retweet count'] = content[0][j][i].retweet_count
+                post['favorited count'] = content[0][j][i].favorited_count
+                post['time created'] = content[0][j][i].time_created
+                twitter['post' + str(postnum)] = post
+                postnum += 1
 
-            with open('data.json', 'w') as outfile:
-                json.dump(package, outfile)
+    # reddit Group
+        postnum = 0
+        for j in range(len(content[1])):
+            for i in range(len(content[1][j])):
 
-            return True
+                post = {}
+                post['title'] = content[1][j][i].title
+                post['author'] = content[1][j][i].author
+                post['link'] = content[1][j][i].link
+                post['time'] = content[1][j][i].time
+                post['score'] = content[1][j][i].score
+                reddit['post' + str(postnum)] = post
+                postnum += 1
+
+    # medium Group
+        postnum = 0
+        for j in range(len(content[2])):
+            for i in range(len(content[2][j])):
+                post = {}
+                post['author'] = (content[2][j][i].author)
+                post['title'] = (content[2][j][i].title)
+                post['description'] = (content[2][j][i].description)
+                post['link'] = (content[2][j][i].link)
+                post['date'] = (content[2][j][i].date)
+                post['read_time'] = (content[2][j][i].read_time)
+                post['category'] = (content[2][j][i].category)
+                medium['post' + str(postnum)] = post
+                postnum += 1
+
+        with open('data.json', 'w') as outfile:
+            json.dump(package, outfile)
+
+        return True
 
     except:
         print('Error in JSON export')
         return False
 
+# exports json as js file -- depracated
+
+
+def js_export():
+    json = open('data.txt', 'r')
+    jsontxt = json.readlines()
+    jsontxt = 'default export const Jsonpackage = {' + str(jsontxt)[
+        3::][:-3] + '}'
+    json.close()
+
+    js = open('Jsonpackage.js', 'w')
+    js.write(jsontxt)
+    js.close()
+
+
+def move():
+    shutil.copy('data.json', '../petal/src')
+
 
 export('admin')
+
+move()

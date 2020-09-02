@@ -62,7 +62,7 @@ def get_content(username):
 
         # json data extraction
         username = (parsed.get('user').get('screen_name'))
-        profile_img = (parsed.get('user').get('profile_inage_url'))
+        profile_img = (parsed.get('user').get('profile_image_url'))
         retweet_count = parsed.get('retweet_count')
         favorited_count = parsed.get('favorited_count')
         time_created = parsed.get('created_at')
