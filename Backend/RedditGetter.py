@@ -17,8 +17,7 @@ class Post():
         self.score = score
 
 
-reddit = praw.Reddit(client_id="sxEXpG454pqrpg",
-                     client_secret="7wGdXpw_UK9N7ZLR11yJkwNvyzk", user_agent="Notification Center")
+reddit = praw.Reddit(####keys go here####)
 
 # returns title of submission (sub = String: subreddit name)
 
