@@ -4,8 +4,8 @@ import "./Redditcontent.css";
 class Redditcontent extends React.Component {
   render() {
     return (
-      <div className="redditcontent">
-        <div className="topbar">
+      <div className="reddit_content">
+        <div className="reddit_topbar">
           <img
             className="subreddit_image"
             src={this.props.subreddit_image}
@@ -16,7 +16,7 @@ class Redditcontent extends React.Component {
         </div>
         <div className="reddit_body">
           <div
-            className="content_image"
+            className="reddit_content_image"
             img={this.props.content_image}
             alt="content"
           ></div>

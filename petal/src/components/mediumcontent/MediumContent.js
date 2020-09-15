@@ -4,8 +4,8 @@ import "./mediumContent.css";
 class MediumContent extends React.Component {
   render() {
     return (
-      <div className="mediumcontent">
-        <div className="topbar">
+      <div className="medium_content">
+        <div className="medium_topbar">
           <img
             className="medium_logo"
             src={this.props.medium_logo}
@@ -13,16 +13,16 @@ class MediumContent extends React.Component {
           ></img>
           <div className="medium_category">{this.props.category}</div>
         </div>
-        <div className="article_body">
+        <div className="medium_article_body">
           <img
-            className="content_image"
+            className="medium_content_image"
             src={this.props.content_image}
-            alt="content"
+            alt="medium_content"
           ></img>
-          <a className="title" href={this.props.link}>
+          <a className="medium_title" href={this.props.link}>
             {this.props.title}
           </a>
-          <div className="info"></div>
+          <div className="medium_info"></div>
         </div>
       </div>
     );

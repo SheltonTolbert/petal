@@ -22,6 +22,7 @@ Article(self, title, description, author, link, date, read_time, category):
 		self.date = date
 		self.read_time = read_time
 		self.category = category
+        self.image = image
 
 Post(self, title, author, link, score, time):
 		self.title = title
@@ -49,47 +50,47 @@ def export(username):
 
     # twitter group
         postnum = 0
-        for j in range(len(content[0])):
-            for i in range(len(content[j][0])):
-                post = {}
-                post['username'] = content[0][j][i].username
-                post['profile_img'] = content[0][j][i].profile_img
-                post['text'] = content[0][j][i].text
-                post['media'] = content[0][j][i].media
-                post['retweet count'] = content[0][j][i].retweet_count
-                post['favorited count'] = content[0][j][i].favorited_count
-                post['time created'] = content[0][j][i].time_created
-                twitter['post' + str(postnum)] = post
-                postnum += 1
+
+        for i in range(len(content[0])):
+            post = {}
+            post['username'] = content[0][i].username
+            post['profile_img'] = content[0][i].profile_img
+            post['text'] = content[0][i].text
+            post['media'] = content[0][i].media
+            post['retweet count'] = content[0][i].retweet_count
+            post['favorited count'] = content[0][i].favorited_count
+            post['time created'] = content[0][i].time_created
+            twitter['post' + str(postnum)] = post
+            postnum += 1
 
     # reddit Group
         postnum = 0
-        for j in range(len(content[1])):
-            for i in range(len(content[1][j])):
 
-                post = {}
-                post['title'] = content[1][j][i].title
-                post['author'] = content[1][j][i].author
-                post['link'] = content[1][j][i].link
-                post['time'] = content[1][j][i].time
-                post['score'] = content[1][j][i].score
-                reddit['post' + str(postnum)] = post
-                postnum += 1
+        for i in range(len(content[1])):
+            post = {}
+            post['title'] = content[1][i].title
+            post['author'] = content[1][i].author
+            post['link'] = content[1][i].link
+            post['time'] = content[1][i].time
+            post['score'] = content[1][i].score
+            reddit['post' + str(postnum)] = post
+            postnum += 1
 
     # medium Group
         postnum = 0
-        for j in range(len(content[2])):
-            for i in range(len(content[2][j])):
-                post = {}
-                post['author'] = (content[2][j][i].author)
-                post['title'] = (content[2][j][i].title)
-                post['description'] = (content[2][j][i].description)
-                post['link'] = (content[2][j][i].link)
-                post['date'] = (content[2][j][i].date)
-                post['read_time'] = (content[2][j][i].read_time)
-                post['category'] = (content[2][j][i].category)
-                medium['post' + str(postnum)] = post
-                postnum += 1
+
+        for i in range(len(content[2])):
+            post = {}
+            post['author'] = (content[2][i].author)
+            post['title'] = (content[2][i].title)
+            post['description'] = (content[2][i].description)
+            post['link'] = (content[2][i].link)
+            post['date'] = (content[2][i].date)
+            post['read_time'] = (content[2][i].read_time)
+            post['category'] = (content[2][i].category)
+            post['image'] = (content[2][i].image)
+            medium['post' + str(postnum)] = post
+            postnum += 1
 
         with open('data.json', 'w') as outfile:
             json.dump(package, outfile)
@@ -119,6 +120,6 @@ def move():
     shutil.copy('data.json', '../petal/src')
 
 
-export('admin')
-
-move()
+if __name__ == "__main__":
+    export('admin')
+    move()

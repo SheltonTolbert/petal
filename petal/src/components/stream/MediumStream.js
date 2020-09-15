@@ -18,7 +18,7 @@ class MediumStream extends React.Component {
           key={post["link"]}
           medium_logo="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Medium-512.png"
           category={post["category"]}
-          content_image="https://miro.medium.com/max/700/1*yTB0AML2PhCGh6iK5eDgbg.jpeg"
+          content_image={post["image"]}
           title={post["title"]}
           link={post["link"]}
         />

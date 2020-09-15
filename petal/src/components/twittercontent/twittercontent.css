@@ -1,15 +1,14 @@
-.twittercontent {
+.twitter_content {
   width: 100%;
   height: 135px;
   margin: auto;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.topbar {
+.twitter_topbar {
   width: 100%;
   height: 35px;
   display: flex;
@@ -17,27 +16,26 @@
   justify-content: flex-start;
 }
 
-.profile_image {
+.twitter_profile_image {
   background-color: white;
   width: 35px;
   height: 35px;
 }
 
-.username {
-  background-color: rgb(221, 144, 144);
+.twitter_username {
   flex-grow: 4;
   margin-left: 1em;
   align-self: flex-end;
-  font-size: 15pt;
+  font-size: 20pt;
+  color: white;
 }
 
-.content_image {
-  background-color: red;
+.twitter_content_image {
   width: 100px;
   height: 100px;
 }
 
-.content {
+.twitter_content {
   background-color: black;
   flex-grow: 1;
   padding-top: 10px;
@@ -45,7 +43,7 @@
   color: white;
 }
 
-.body {
+.twitter_body {
   width: 100%;
   height: 100px;
   display: flex;

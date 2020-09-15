@@ -1,4 +1,4 @@
-.redditcontent {
+.reddit_content {
   width: 100%;
   height: 135px;
   margin: auto;
@@ -9,7 +9,7 @@
   justify-content: flex-start;
 }
 
-.topbar {
+.reddit_topbar {
   width: 100%;
   height: 35px;
   display: flex;
@@ -30,7 +30,7 @@
   color: white;
 }
 
-.content_image {
+.reddit_content_image {
   width: 100px;
   height: 100px;
 }
@@ -41,10 +41,8 @@
   padding-left: 20px;
   color: white;
   text-decoration: none;
-
   overflow: hidden;
   text-overflow: ellipsis;
-
   font-size: 15pt;
   font-weight: 2px;
 }

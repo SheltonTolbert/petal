@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 class Article():
-    def __init__(self, title, description, author, link, date, read_time, category):
+    def __init__(self, title, description, author, link, date, read_time, category, image):
         self.title = title
         self.description = description
         self.author = author
@@ -11,6 +11,7 @@ class Article():
         self.date = date
         self.read_time = read_time
         self.category = category
+        self.image = image
 
 
 def get_articles(sub):
@@ -21,6 +22,18 @@ def get_articles(sub):
     soup = BeautifulSoup(response.text, 'html.parser')
     type(soup)
     article_containers = soup.find_all('section')
+
+    images = soup.find_all('style')
+    image_urls = []
+    for image in images:
+        if ('background-image' in str(image)):
+            preformatted = str(image).split('{')
+            for styles in preformatted:
+                if 'background-image' in styles:
+                    start = styles.find('(') + 1
+                    end = styles.find(')')
+                    img_src = styles[start:end]
+                    image_urls.append(img_src)
 
     for i in range(len(article_containers)):
         try:
@@ -46,9 +59,12 @@ def get_articles(sub):
                 9].text.split('·')[1]
 
             articles.append(Article(article_title, article_description,
-                                    author, link_to_article, date, read_time, category))
+                                    author, link_to_article, date, read_time, category, image_urls[i]))
 
         except:
             pass
 
     return articles
+
+
+get_articles('popular')

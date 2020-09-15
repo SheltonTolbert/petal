@@ -1,15 +1,14 @@
-.mediumcontent {
+.medium_content {
   width: 100%;
   height: 135px;
   margin: auto;
-  background-color: gray;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.topbar {
+.medium_topbar {
   width: 100%;
   height: 35px;
   display: flex;
@@ -30,20 +29,25 @@
   font-size: 15pt;
 }
 
-.content_image {
+.medium_content_image {
   width: 100px;
   height: 100px;
 }
 
-.title {
+.medium_title {
   background-color: black;
   flex-grow: 1;
   padding-top: 10px;
   padding-left: 20px;
+  font-size: 15pt;
+  font-weight: 2px;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: white;
 }
 
-.article_body {
+.medium_article_body {
   width: 100%;
   height: 100px;
   display: flex;
