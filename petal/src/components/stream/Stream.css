@@ -2,11 +2,16 @@
   width: 33%;
   height: 100%;
 
+  margin-right: 10px;
+
   overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  display: none;
 }
 
 /* Track */
@@ -25,3 +30,5 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #4d4d4d;
 }
+
+
