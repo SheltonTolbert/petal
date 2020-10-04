@@ -1,7 +1,7 @@
 ## petal
 Petal is a social media data aggregation project which leverages external API's, such as Twitter and reddit, and good-old-fassioned webscraping to retrieve data from the web.
-
-
+\n
+\n
 
 
 
@@ -29,7 +29,7 @@ The UI was made using React, traditional html and css
 
 ## DatabaseConnector.py
   An Python interface for MySQL
-  
+  '''
   __get_id(): 
     -private method for retreving user id
     -returns None if no such username
@@ -55,10 +55,10 @@ The UI was made using React, traditional html and css
       -deletes user
       -throws error if username does not exist
       -else returns true
-  
+  '''
 ## Driver.py
 Driver code for retrieving and formatting lage batch data
-  
+  '''
   //TODO: add post limit variable
   get_reddit_content(username):
     retrieves data from every subreddit in the user object
@@ -80,14 +80,14 @@ Driver code for retrieving and formatting lage batch data
       twitter_content == a list of twitter usernames
     returns (twitter_content[], reddit_content[], medium_content[])
     
-    
+    '''
   
 
 
 ## Exporter.py
 
 the purpose of this .py is to export all necessary data to a json file
-
+'''
 Tweet(self, username, profile_img, retweet_count, favorited_count, time_created, text, media):
 		self.username = username
 		self.profile_img = profile_img
@@ -115,12 +115,12 @@ Post(self, title, author, link, score, time):
 		self.score = score
 
 
-
+'''
 
 
 
 ## MediumGetter.py
- 
+ '''
   class Article():
     def __init__(self, title, description, author, link, date, read_time, category, image):
         self.title = title
@@ -136,12 +136,12 @@ Post(self, title, author, link, score, time):
     returns Article 
   
   
-  
+  '''
   
   
   
 ## RedditGetter.py
-
+'''
   class Post():
 
     def __init__(self, title, author, link, score, time):
@@ -170,20 +170,20 @@ Post(self, title, author, link, score, time):
       returns Post[]posts
   
   
-  
+  '''
       
  
 
 ## Sorter.py
-
+'''
   --depricated
   
   
-  
+  '''
   
   
 ## TwitterGetter.py
-
+'''
   class Tweet():
 
     def __init__(self, username, profile_img, retweet_count, favorited_count, time_created, text, media):
@@ -203,7 +203,7 @@ Post(self, title, author, link, score, time):
     
   def get_content(username):
       returns a Tweet object for each recent tweet of the username - up to 11
-      
+ '''     
   
   
 ## API   
