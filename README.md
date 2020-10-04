@@ -31,11 +31,11 @@ Handling the backend of petal is a Python environment running an instance of Fla
 
 ## DatabaseConnector.py
   An Python interface for MySQL
-  
+  ```
   __get_id(): 
     -private method for retreving user id
     -returns None if no such username
-```
+
   get_content(username, platform):
       -returns all content associated with username 
       -returns False if no such username
