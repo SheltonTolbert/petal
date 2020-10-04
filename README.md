@@ -15,6 +15,8 @@ The UI was made using React, traditional html and css
 
 
 # backend
+Handling the backend of petal is a Python environment running an instance of Flask. Flask does not host the react front end, rather is used as a server to process GET requests from the petal front end.
+
 
 
 
